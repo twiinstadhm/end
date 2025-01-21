@@ -31,12 +31,9 @@ body {
 
 #background-image {
     position: absolute;
-    width: 100%; /* يمكنك تغيير العرض حسب الحاجة */
-    height: 100%; /* يمكنك تغيير الارتفاع حسب الحاجة */
-    background-image: url('image.jpg');
-    background-size: contain; /* الصورة تظهر بالكامل مع الحفاظ على النسبة */
-    background-repeat: no-repeat; /* لمنع تكرار الصورة */
-    background-position: center; /* لتوسيط الصورة */
+    width: 100%; /* يشغل العرض الكامل */
+    height: 100%; /* يشغل الارتفاع الكامل */
+    object-fit: cover; /* يغطي المساحة مع الحفاظ على النسبة */
 }
 
 .logo {
