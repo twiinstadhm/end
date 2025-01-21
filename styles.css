@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-    position: relative; /* يجب أن يكون relative */
+    position: relative;
     width: 1080px;
     height: 1920px;
     background-color: white;
@@ -26,38 +26,37 @@ body {
 
 .logo {
     position: absolute;
-    width: 200px; /* يمكن تعديل حجم الشعار حسب الحاجة */
+    width: 200px;
     height: auto;
     cursor: pointer;
-    display: none; /* إخفاء الشعارات حتى يتم اختيارها */
+    display: none;
 }
 
 #team1-logo {
-    left: 20%; /* تعديل موضع الشعار الأول */
-    top: 60%; /* تعديل موضع الشعار الأول */
+    left: 20%; /* تعديل الموضع داخل القالب */
+    top: 60%; /* تعديل الموضع داخل القالب */
     transform: translate(-50%, -50%);
-    display: block; /* تأكد من ظهور الشعار */
+    display: block;
 }
 
 #team2-logo {
-    left: 80%; /* تعديل موضع الشعار الثاني */
-    top: 60%; /* تعديل موضع الشعار الثاني */
+    left: 80%; /* تعديل الموضع داخل القالب */
+    top: 60%; /* تعديل الموضع داخل القالب */
     transform: translate(-50%, -50%);
-    display: block; /* تأكد من ظهور الشعار */
+    display: block;
 }
 
-
 .controls {
-    position: fixed; /* استخدام fixed بدلاً من absolute */
+    position: fixed;
     bottom: 20px;
     right: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: rgba(255, 255, 255, 0.8); /* خلفية شبه شفافة */
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
     border-radius: 5px;
-    z-index: 3; /* تأكد من ظهور عناصر التحكم فوق كل شيء */
+    z-index: 3;
 }
 
 select {
@@ -83,9 +82,8 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* تنسيقات زر رفع الصورة */
 #background-upload {
-    display: none; /* إخفاء عنصر الرفع الأصلي */
+    display: none;
 }
 
 .upload-button {
@@ -97,27 +95,27 @@ button:hover {
     background-color: #28a745;
     color: white;
     transition: background-color 0.3s ease;
-    margin-bottom: 10px; /* تباعد بين الزر والعناصر الأخرى */
+    margin-bottom: 10px;
 }
 
 .upload-button:hover {
     background-color: #218838;
 }
 
-/* تنسيقات الصورة الخلفية */
 #background-image {
     position: absolute;
-    width: 100%; /* يمكن تعديل الحجم الافتراضي */
+    width: 100%;
     height: auto;
-    z-index: 1; /* تأكد من أنها خلف العناصر الأخرى */
-    cursor: move; /* تغيير شكل المؤشر عند التحريك */
-    display: none; /* إخفاء الصورة حتى يتم رفعها */
-    max-width: 1080px; /* التأكد من عدم تجاوز الصورة الخلفية للنطاق */
+    z-index: 1;
+    cursor: move;
+    display: none;
+    max-width: 1080px;
     max-height: 1920px;
 }
 
-/* تأكد من أن العناصر الأخرى تظهر فوق الخلفية */
-#template, .logo, .controls {
+#template,
+.logo,
+.controls {
     position: relative;
     z-index: 2;
 }
