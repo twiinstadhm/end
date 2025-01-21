@@ -8,6 +8,13 @@
 </head>
 <body>
     <div class="container">
+        <!-- عنصر لرفع الصورة الخلفية -->
+        <input type="file" id="background-upload" accept="image/*" style="display: none;">
+        <button onclick="document.getElementById('background-upload').click()">رفع صورة خلفية</button>
+
+        <!-- الصورة الخلفية -->
+        <img src="" alt="Background Image" id="background-image" class="draggable resizable">
+
         <!-- الصورة الأساسية (Template) -->
         <img src="./logos/template.png" alt="Template" id="template">
 
@@ -34,6 +41,7 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
