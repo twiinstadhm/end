@@ -63,3 +63,31 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+
+/* تنسيقات زر رفع الصورة */
+#background-upload {
+    display: none; /* إخفاء عنصر الرفع الأصلي */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px; /* تباعد بين الزر والعناصر الأخرى */
+}
+
+/* تنسيقات الصورة الخلفية */
+#background-image {
+    position: absolute;
+    width: 100%; /* يمكن تعديل الحجم الافتراضي */
+    height: auto;
+    z-index: 1; /* تأكد من أنها خلف العناصر الأخرى */
+    cursor: move; /* تغيير شكل المؤشر عند التحريك */
+    display: none; /* إخفاء الصورة حتى يتم رفعها */
+}
+
+/* تأكد من أن العناصر الأخرى تظهر فوق الخلفية */
+#template, .logo, .controls {
+    position: relative;
+    z-index: 2;
+}
