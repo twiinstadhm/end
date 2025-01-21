@@ -85,10 +85,15 @@ document.addEventListener('DOMContentLoaded', function() {
         team2Logo.src = logosPath + this.value;
     });
 });
+
 // تحميل الصورة النهائية
 function downloadTemplate() {
     const container = document.querySelector('.container');
-
+    
+    // استبعاد القوائم المنسدلة وزر التحميل
+    const controls = document.querySelector('.controls');
+    controls.style.display = 'none';  // إخفاء العناصر غير المرغوب فيها
+    
     // استخدام html2canvas لالتقاط العنصر
     html2canvas(container, {
         allowTaint: true, // السماح بتحميل الصور من مصادر خارجية
@@ -105,6 +110,9 @@ function downloadTemplate() {
         document.body.appendChild(link);
         link.click(); // تنزيل الملف
         document.body.removeChild(link); // إزالة الرابط من الـ DOM
+
+        // إعادة عرض عناصر التحكم بعد تحميل الصورة
+        controls.style.display = 'flex';  // إظهار العناصر مرة أخرى
     }).catch(error => {
         console.error('حدث خطأ أثناء إنشاء الصورة:', error);
     });
