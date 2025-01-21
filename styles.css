@@ -33,7 +33,9 @@ body {
     position: absolute;
     width: 100%; /* يشغل العرض الكامل */
     height: 100%; /* يشغل الارتفاع الكامل */
-    object-fit: cover; /* يغطي المساحة مع الحفاظ على النسبة */
+    background-image: url('image.jpg');
+    background-size: cover; /* يغطي المساحة مع الحفاظ على النسبة */
+    background-position: center; /* لتوسيط الصورة */
 }
 
 .logo {
