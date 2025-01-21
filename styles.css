@@ -50,14 +50,14 @@ body {
 
 #team1-logo {
     left: 25%; /* وضع الشعار الأول داخل القالب */
-    top: 50%; /* موضع الشعار الأول */
+    top: 25%; /* موضع الشعار الأول */
     transform: translate(-50%, -50%);
     display: block;
 }
 
 #team2-logo {
     left: 75%; /* وضع الشعار الثاني داخل القالب */
-    top: 50%; /* موضع الشعار الثاني */
+    top: 25%; /* موضع الشعار الثاني */
     transform: translate(-50%, -50%);
     display: block;
 }
