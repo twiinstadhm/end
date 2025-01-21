@@ -36,12 +36,16 @@ body {
 
 #background-image {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background-size: cover; /* يضمن أن الصورة تغطي الخلفية بالكامل */
-    background-position: center;
-    transform-origin: center; /* لضبط نقطة الأصل عند التكبير */
-    cursor: grab;
+    top: 50%; /* ضبط الصورة في منتصف الارتفاع */
+    left: 50%; /* ضبط الصورة في منتصف العرض */
+    transform: translate(-50%, -50%); /* تعديل الموضع للتوسيط الكامل */
+    width: auto; /* العرض يعتمد على النسبة الأصلية */
+    height: auto; /* الارتفاع يعتمد على النسبة الأصلية */
+    max-height: 100%; /* عدم تجاوز الارتفاع الكامل للحاوية */
+    background-size: cover; /* غطاء كامل مع الحفاظ على النسبة */
+    background-position: center; /* توسيط الصورة */
+    background-repeat: no-repeat; /* منع تكرار الصورة */
+    z-index: 1; /* وضعها في الخلفية */
 }
 
 .logo {
