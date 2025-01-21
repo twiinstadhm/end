@@ -32,6 +32,7 @@ body {
 #background-image {
     position: absolute;
     width: 100%; /* يشغل العرض الكامل */
+    height: 100%;
     aspect-ratio: 16 / 9; /* نسبة العرض إلى الارتفاع (يمكن تغييرها) */
     object-fit: cover; /* يغطي المساحة مع الحفاظ على النسبة */
 }
