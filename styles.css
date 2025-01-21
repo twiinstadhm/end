@@ -31,12 +31,11 @@ body {
 
 #background-image {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100%; /* يشغل العرض الكامل */
+    height: 100%; /* يشغل الارتفاع الكامل */
     background-image: url('image.jpg');
-    background-size: cover; /* تغطية مع الحفاظ على النسبة */
+    background-size: cover; /* يغطي المساحة مع الحفاظ على النسبة */
     background-position: center; /* لتوسيط الصورة */
-    background-repeat: no-repeat; /* منع التكرار */
 }
 
 .logo {
