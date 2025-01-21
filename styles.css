@@ -16,7 +16,7 @@ body {
     height: 1920px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* منع أي عنصر من الخروج خارج النطاق */
+    /* تمت إزالة overflow: hidden */
 }
 
 #template {
@@ -108,8 +108,8 @@ button:hover {
     z-index: 1; /* تأكد من أنها خلف العناصر الأخرى */
     cursor: move; /* تغيير شكل المؤشر عند التحريك */
     display: none; /* إخفاء الصورة حتى يتم رفعها */
-    max-width: 3080px; /* التأكد من عدم تجاوز الصورة الخلفية للنطاق */
-    max-height: 3920px;
+    max-width: 1080px; /* التأكد من عدم تجاوز الصورة الخلفية للنطاق */
+    max-height: 1920px;
 }
 
 /* تأكد من أن العناصر الأخرى تظهر فوق الخلفية */
