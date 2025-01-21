@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const team2Logo = document.getElementById('team2-logo');
     const backgroundImage = document.getElementById('background-image');
     const backgroundUpload = document.getElementById('background-upload');
+    const template = document.getElementById('template');
 
     // قائمة الشعارات
     const logos = [
@@ -76,16 +77,19 @@ document.addEventListener('DOMContentLoaded', function () {
     populateSelect(team1Select);
     populateSelect(team2Select);
 
+    // تغيير شعار الفريق الأول
     team1Select.addEventListener('change', function () {
         team1Logo.src = logosPath + this.value;
         team1Logo.style.display = 'block';
     });
 
+    // تغيير شعار الفريق الثاني
     team2Select.addEventListener('change', function () {
         team2Logo.src = logosPath + this.value;
         team2Logo.style.display = 'block';
     });
 
+    // رفع صورة الخلفية
     backgroundUpload.addEventListener('change', function (event) {
         const file = event.target.files[0];
         if (file) {
@@ -99,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // تفعيل التفاعل مع الصورة الخلفية
     function enableImageInteraction(imageElement) {
         interact(imageElement)
             .draggable({
@@ -154,6 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // تحميل القالب كصورة
     window.downloadTemplate = function () {
         const container = document.querySelector('.container');
         const controls = document.querySelector('.controls');
