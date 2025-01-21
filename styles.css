@@ -16,7 +16,7 @@ body {
     height: 1920px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    overflow: hidden; /* للتأكد من عدم خروج أي عنصر خارج القالب */
 }
 
 #template {
@@ -26,7 +26,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 2; /* القالب فوق الخلفية */
 }
 
 #background-image {
@@ -43,19 +43,21 @@ body {
     height: auto;
     cursor: pointer;
     display: none;
-    z-index: 3;
+    z-index: 3; /* الشعارات فوق القالب */
 }
 
 #team1-logo {
-    left: 25%;
-    top: 75%;
+    left: 25%; /* وضع الشعار الأول داخل القالب */
+    top: 75%; /* موضع الشعار الأول */
     transform: translate(-50%, -50%);
+    display: block;
 }
 
 #team2-logo {
-    left: 75%;
-    top: 75%;
+    left: 75%; /* وضع الشعار الثاني داخل القالب */
+    top: 75%; /* موضع الشعار الثاني */
     transform: translate(-50%, -50%);
+    display: block;
 }
 
 .controls {
@@ -68,22 +70,25 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
     border-radius: 5px;
-    z-index: 4;
+    z-index: 4; /* عناصر التحكم فوق الجميع */
 }
 
-select, button {
+select {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: white;
-    cursor: pointer;
 }
 
 button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
     background-color: #007bff;
     color: white;
-    border: none;
     transition: background-color 0.3s ease;
 }
 
@@ -91,14 +96,22 @@ button:hover {
     background-color: #0056b3;
 }
 
+#background-upload {
+    display: none;
+}
+
 .upload-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
     background-color: #28a745;
+    color: white;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
 }
 
 .upload-button:hover {
     background-color: #218838;
-}
-
-#background-upload {
-    display: none;
 }
