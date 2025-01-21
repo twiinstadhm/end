@@ -11,12 +11,11 @@ body {
 }
 
 .container {
-    position: relative;
+    position: relative; /* يجب أن يكون relative */
     width: 1080px;
     height: 1920px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /* تمت إزالة overflow: hidden */
 }
 
 #template {
@@ -34,13 +33,13 @@ body {
 }
 
 #team1-logo {
-    left: 50px; /* الموقع الأفقي للشعار الأول */
-    top: 50px; /* الموقع العمودي للشعار الأول */
+    left: 749px; /* الموقع الأفقي للشعار الأول */
+    top: 1336px; /* الموقع العمودي للشعار الأول */
 }
 
 #team2-logo {
-    left: 50px; /* الموقع الأفقي للشعار الثاني */
-    top: 50px; /* الموقع العمودي للشعار الثاني */
+    left: 132.5px; /* الموقع الأفقي للشعار الثاني */
+    top: 1336px; /* الموقع العمودي للشعار الثاني */
 }
 
 .controls {
