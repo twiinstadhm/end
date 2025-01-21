@@ -85,3 +85,27 @@ document.addEventListener('DOMContentLoaded', function() {
         team2Logo.src = logosPath + this.value;
     });
 });
+// تحميل الصورة النهائية
+function downloadTemplate() {
+    const container = document.querySelector('.container');
+
+    // استخدام html2canvas لالتقاط العنصر
+    html2canvas(container, {
+        allowTaint: true, // السماح بتحميل الصور من مصادر خارجية
+        useCORS: true, // استخدام CORS لتحميل الصور
+        logging: true, // تفعيل التسجيل للأخطاء
+    }).then(canvas => {
+        // تحويل Canvas إلى صورة
+        const image = canvas.toDataURL('image/png');
+
+        // إنشاء رابط لتحميل الصورة
+        const link = document.createElement('a');
+        link.href = image;
+        link.download = 'template-with-logos.png'; // اسم الملف الذي سيتم تحميله
+        document.body.appendChild(link);
+        link.click(); // تنزيل الملف
+        document.body.removeChild(link); // إزالة الرابط من الـ DOM
+    }).catch(error => {
+        console.error('حدث خطأ أثناء إنشاء الصورة:', error);
+    });
+}
