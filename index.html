@@ -1,3 +1,39 @@
-<img src="./logos/template.png" alt="Template" id="template">
-<img src="./logos/BUNDESLIGA - بايرن ميونخ.png" alt="Team 1 Logo" id="team1-logo" class="logo">
-<img src="./logos/PREMIER LEAGUE - مانشستر سيتي.png" alt="Team 2 Logo" id="team2-logo" class="logo">
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعديل الشعارات</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- الصورة الأساسية (Template) -->
+        <img src="./logos/template.png" alt="Template" id="template">
+
+        <!-- شعار الفريق الأول -->
+        <img src="./logos/BUNDESLIGA - بايرن ميونخ.png" alt="Team 1 Logo" id="team1-logo" class="logo">
+
+        <!-- شعار الفريق الثاني -->
+        <img src="./logos/PREMIER LEAGUE - مانشستر سيتي.png" alt="Team 2 Logo" id="team2-logo" class="logo">
+
+        <!-- عنصر لتجميع القوائم المنسدلة وزر التحميل -->
+        <div class="controls">
+            <!-- قائمة منسدلة لتحديد شعار الفريق الأول -->
+            <select id="team1-select">
+                <option value="">اختر شعار الفريق الأول</option>
+            </select>
+
+            <!-- قائمة منسدلة لتحديد شعار الفريق الثاني -->
+            <select id="team2-select">
+                <option value="">اختر شعار الفريق الثاني</option>
+            </select>
+
+            <!-- زر لتحميل الصورة النهائية -->
+            <button onclick="downloadTemplate()">تحميل الصورة</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
