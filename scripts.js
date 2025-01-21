@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 inertia: true,
                 modifiers: [
                     interact.modifiers.restrictRect({
-                        restriction: 'parent',
+                        restriction: '.container',
                         endOnly: true
                     })
                 ],
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 edges: { left: true, right: true, bottom: true, top: true },
                 modifiers: [
                     interact.modifiers.restrictEdges({
-                        outer: 'parent'
+                        outer: '.container'
                     }),
                     interact.modifiers.restrictSize({
                         min: { width: 100, height: 100 },
