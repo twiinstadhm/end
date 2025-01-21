@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const team2Logo = document.getElementById('team2-logo');
     const backgroundImage = document.getElementById('background-image');
     const backgroundUpload = document.getElementById('background-upload');
-    const template = document.getElementById('template');
 
     // قائمة الشعارات
     const logos = [
