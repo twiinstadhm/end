@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const backgroundImage = document.getElementById('background-image');
     const backgroundUpload = document.getElementById('background-upload');
 
+    // قائمة الشعارات
     const logos = [
         "BUNDESLIGA - آينتراخت فرانكفورت.png",
         "BUNDESLIGA - باير ليفركوزن.png",
@@ -75,18 +76,19 @@ document.addEventListener('DOMContentLoaded', function () {
     populateSelect(team1Select);
     populateSelect(team2Select);
 
+    // تغيير شعار الفريق الأول
     team1Select.addEventListener('change', function () {
         team1Logo.src = logosPath + this.value;
         team1Logo.style.display = 'block';
-        enableImageInteraction(team1Logo);
     });
 
+    // تغيير شعار الفريق الثاني
     team2Select.addEventListener('change', function () {
         team2Logo.src = logosPath + this.value;
         team2Logo.style.display = 'block';
-        enableImageInteraction(team2Logo);
     });
 
+    // رفع صورة الخلفية
     backgroundUpload.addEventListener('change', function (event) {
         const file = event.target.files[0];
         if (file) {
@@ -94,29 +96,15 @@ document.addEventListener('DOMContentLoaded', function () {
             reader.onload = function (e) {
                 backgroundImage.src = e.target.result;
                 backgroundImage.style.display = 'block';
-                resizeBackgroundImage(backgroundImage);
                 enableImageInteraction(backgroundImage);
             };
             reader.readAsDataURL(file);
         }
     });
 
-    function resizeBackgroundImage(image) {
-        const container = document.querySelector('.container');
-        const containerRatio = container.offsetWidth / container.offsetHeight;
-        const imageRatio = image.naturalWidth / image.naturalHeight;
-
-        if (containerRatio > imageRatio) {
-            image.style.width = 'auto';
-            image.style.height = '100%';
-        } else {
-            image.style.width = '100%';
-            image.style.height = 'auto';
-        }
-    }
-
-    function enableImageInteraction(element) {
-        interact(element)
+    // تفعيل التفاعل مع الصورة الخلفية
+    function enableImageInteraction(imageElement) {
+        interact(imageElement)
             .draggable({
                 inertia: true,
                 modifiers: [
@@ -126,7 +114,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     })
                 ],
                 autoScroll: true,
-                listeners: { move: dragMoveListener }
+                listeners: {
+                    move: dragMoveListener
+                }
             })
             .resizable({
                 edges: { left: true, right: true, bottom: true, top: true },
@@ -134,8 +124,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     interact.modifiers.restrictEdges({
                         outer: '.container'
                     }),
-                    interact.modifiers.aspectRatio({
-                        ratio: 'preserve'
+                    interact.modifiers.restrictSize({
+                        min: { width: 100, height: 100 },
+                        max: { width: 1080, height: 1920 }
                     })
                 ],
                 inertia: true
@@ -167,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // تحميل القالب كصورة
     window.downloadTemplate = function () {
         const container = document.querySelector('.container');
         const controls = document.querySelector('.controls');
@@ -175,6 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
         html2canvas(container, {
             allowTaint: true,
             useCORS: true,
+            logging: true,
             width: 1080,
             height: 1920,
         }).then(canvas => {
