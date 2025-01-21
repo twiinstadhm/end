@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const logosPath = "./logos/"; // المسار النسبي لمجلد الشعارات
+document.addEventListener('DOMContentLoaded', function () {
+    const logosPath = "./logos/";
     const team1Select = document.getElementById('team1-select');
     const team2Select = document.getElementById('team2-select');
     const team1Logo = document.getElementById('team1-logo');
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const backgroundImage = document.getElementById('background-image');
     const backgroundUpload = document.getElementById('background-upload');
 
-   // قائمة الشعارات
+    // قائمة الشعارات
     const logos = [
         "BUNDESLIGA - آينتراخت فرانكفورت.png",
         "BUNDESLIGA - باير ليفركوزن.png",
@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
         "ضمك.png"
     ];
 
-    // تعبئة القوائم المنسدلة بالشعارات
     function populateSelect(selectElement) {
         logos.forEach(logo => {
             const option = document.createElement('option');
@@ -77,85 +76,65 @@ document.addEventListener('DOMContentLoaded', function() {
     populateSelect(team1Select);
     populateSelect(team2Select);
 
-    // تحديث شعار الفريق الأول عند تغيير الاختيار
-    team1Select.addEventListener('change', function() {
+    team1Select.addEventListener('change', function () {
         team1Logo.src = logosPath + this.value;
-        team1Logo.style.display = 'block'; // عرض الشعار بعد اختياره
+        team1Logo.style.display = 'block';
     });
 
-    // تحديث شعار الفريق الثاني عند تغيير الاختيار
-    team2Select.addEventListener('change', function() {
+    team2Select.addEventListener('change', function () {
         team2Logo.src = logosPath + this.value;
-        team2Logo.style.display = 'block'; // عرض الشعار بعد اختياره
+        team2Logo.style.display = 'block';
     });
 
-    // رفع الصورة الخلفية
-    backgroundUpload.addEventListener('change', function(event) {
+    backgroundUpload.addEventListener('change', function (event) {
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 backgroundImage.src = e.target.result;
-                backgroundImage.style.display = 'block'; // عرض الصورة بعد رفعها
-
-                // تفعيل التحريك والتكبير للصورة الخلفية بعد تحميلها
+                backgroundImage.style.display = 'block';
                 enableImageInteraction(backgroundImage);
             };
             reader.readAsDataURL(file);
         }
     });
 
-    // تفعيل التحريك والتكبير للصورة الخلفية
     function enableImageInteraction(imageElement) {
         interact(imageElement)
             .draggable({
                 inertia: true,
                 modifiers: [
                     interact.modifiers.restrictRect({
-                        restriction: 'parent', // تقييد الحركة داخل النطاق 1080x1920
+                        restriction: 'parent',
                         endOnly: true
                     })
                 ],
                 autoScroll: true,
                 listeners: {
-                    start: function (event) {
-                        // تجميد الطبقة التي أمامها (الشعارات والقوائم المنسدلة)
-                        document.querySelectorAll('.logo, .controls').forEach(element => {
-                            element.style.pointerEvents = 'none'; // تعطيل التفاعل مع العناصر الأخرى
-                        });
-                    },
-                    move: dragMoveListener,
-                    end: function (event) {
-                        // إعادة تفعيل الطبقة التي أمامها بعد الانتهاء من التحريك
-                        document.querySelectorAll('.logo, .controls').forEach(element => {
-                            element.style.pointerEvents = 'auto'; // إعادة تفعيل التفاعل مع العناصر الأخرى
-                        });
-                    }
+                    move: dragMoveListener
                 }
             })
             .resizable({
                 edges: { left: true, right: true, bottom: true, top: true },
                 modifiers: [
                     interact.modifiers.restrictEdges({
-                        outer: 'parent' // تقييد التكبير داخل النطاق 1080x1920
+                        outer: 'parent'
                     }),
                     interact.modifiers.restrictSize({
-                        min: { width: 100, height: 100 }, // الحد الأدنى للحجم
-                        max: { width: 1080, height: 1920 } // الحد الأقصى للحجم
+                        min: { width: 100, height: 100 },
+                        max: { width: 1080, height: 1920 }
                     })
                 ],
                 inertia: true
             })
-            .on('resizemove', function(event) {
+            .on('resizemove', function (event) {
                 const target = event.target;
                 let x = (parseFloat(target.getAttribute('data-x')) || 0);
                 let y = (parseFloat(target.getAttribute('data-y')) || 0);
 
-                // تحديث حجم العنصر
                 target.style.width = event.rect.width + 'px';
                 target.style.height = event.rect.height + 'px';
 
-                // تحديث الموضع
                 x += event.deltaRect.left;
                 y += event.deltaRect.top;
 
@@ -175,36 +154,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // تحميل الصورة النهائية
-    function downloadTemplate() {
+    window.downloadTemplate = function () {
         const container = document.querySelector('.container');
         const controls = document.querySelector('.controls');
-        controls.style.display = 'none'; // إخفاء عناصر التحكم أثناء التحميل
+        controls.style.display = 'none';
 
-        // استخدام html2canvas لالتقاط الجزء الموجود داخل القالب
         html2canvas(container, {
             allowTaint: true,
             useCORS: true,
             logging: true,
-            width: 1080, // تحديد عرض القالب
-            height: 1920, // تحديد ارتفاع القالب
-            x: 0, // بدء الالتقاط من الزاوية اليسرى العليا
-            y: 0, // بدء الالتقاط من الزاوية اليسرى العليا
+            width: 1080,
+            height: 1920,
         }).then(canvas => {
             const image = canvas.toDataURL('image/png');
-
-            // إنشاء رابط لتحميل الصورة
             const link = document.createElement('a');
             link.href = image;
             link.download = 'template-with-logos.png';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-
-            // إعادة عرض عناصر التحكم بعد التحميل
             controls.style.display = 'flex';
         }).catch(error => {
             console.error('حدث خطأ أثناء إنشاء الصورة:', error);
         });
-    }
+    };
 });
