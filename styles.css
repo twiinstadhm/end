@@ -43,7 +43,7 @@ body {
 }
 
 .controls {
-    position: fixed; /* استخدام fixed بدلاً من absolute */
+    position: absolute;
     bottom: 20px;
     right: 20px;
     display: flex;
@@ -53,8 +53,6 @@ body {
     padding: 10px;
     border-radius: 5px;
     z-index: 3; /* تأكد من ظهور عناصر التحكم فوق كل شيء */
-    visibility: visible !important; /* التأكد من ظهور العناصر */
-    opacity: 1 !important; /* التأكد من أن العناصر غير شفافة */
 }
 
 select {
