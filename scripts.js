@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const backgroundImage = document.getElementById('background-image');
     const backgroundUpload = document.getElementById('background-upload');
 
-    // قائمة الشعارات
+   // قائمة الشعارات
     const logos = [
         "BUNDESLIGA - آينتراخت فرانكفورت.png",
         "BUNDESLIGA - باير ليفركوزن.png",
@@ -180,12 +180,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const container = document.querySelector('.container');
         const controls = document.querySelector('.controls');
         controls.style.display = 'none'; // إخفاء عناصر التحكم أثناء التحميل
-
-        // تحديد حدود القالب (1080x1920)
-        const canvas = document.createElement('canvas');
-        canvas.width = 1080;
-        canvas.height = 1920;
-        const ctx = canvas.getContext('2d');
 
         // استخدام html2canvas لالتقاط الجزء الموجود داخل القالب
         html2canvas(container, {
