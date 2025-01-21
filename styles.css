@@ -51,17 +51,30 @@ body {
     background-color: rgba(255, 255, 255, 0.8); /* خلفية شبه شفافة */
     padding: 10px;
     border-radius: 5px;
+    z-index: 3; /* تأكد من ظهور عناصر التحكم فوق كل شيء */
 }
 
 select {
     padding: 10px;
     font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
 }
 
 button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
 
 /* تنسيقات زر رفع الصورة */
@@ -69,11 +82,20 @@ button {
     display: none; /* إخفاء عنصر الرفع الأصلي */
 }
 
-button {
+.upload-button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    transition: background-color 0.3s ease;
     margin-bottom: 10px; /* تباعد بين الزر والعناصر الأخرى */
+}
+
+.upload-button:hover {
+    background-color: #218838;
 }
 
 /* تنسيقات الصورة الخلفية */
