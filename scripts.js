@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
             inertia: true,
             modifiers: [
                 interact.modifiers.restrictRect({
-                    restriction: 'parent',
+                    restriction: 'parent', // تقييد الحركة داخل النطاق 1080x1920
                     endOnly: true
                 })
             ],
@@ -119,10 +119,11 @@ document.addEventListener('DOMContentLoaded', function() {
             edges: { left: true, right: true, bottom: true, top: true },
             modifiers: [
                 interact.modifiers.restrictEdges({
-                    outer: 'parent'
+                    outer: 'parent' // تقييد التكبير داخل النطاق 1080x1920
                 }),
                 interact.modifiers.restrictSize({
-                    min: { width: 100, height: 100 }
+                    min: { width: 100, height: 100 }, // الحد الأدنى للحجم
+                    max: { width: 1080, height: 1920 } // الحد الأقصى للحجم
                 })
             ],
             inertia: true
