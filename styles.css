@@ -31,12 +31,12 @@ body {
 
 #background-image {
     position: absolute;
-    max-width: 100%; /* لا تتجاوز عرض العنصر الأب */
-    max-height: 100%; /* لا تتجاوز ارتفاع العنصر الأب */
-    object-fit: contain; /* الصورة تظهر بالكامل مع الحفاظ على النسبة */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* لتوسيط الصورة */
+    width: 100%; /* يمكنك تغيير العرض حسب الحاجة */
+    height: 100%; /* يمكنك تغيير الارتفاع حسب الحاجة */
+    background-image: url('image.jpg');
+    background-size: contain; /* الصورة تظهر بالكامل مع الحفاظ على النسبة */
+    background-repeat: no-repeat; /* لمنع تكرار الصورة */
+    background-position: center; /* لتوسيط الصورة */
 }
 
 .logo {
