@@ -30,6 +30,7 @@ body {
     width: 200px; /* يمكن تعديل حجم الشعار حسب الحاجة */
     height: auto;
     cursor: pointer;
+    display: none; /* إخفاء الشعارات حتى يتم اختيارها */
 }
 
 #team1-logo {
@@ -43,7 +44,7 @@ body {
 }
 
 .controls {
-    position: absolute;
+    position: fixed; /* استخدام fixed بدلاً من absolute */
     bottom: 20px;
     right: 20px;
     display: flex;
