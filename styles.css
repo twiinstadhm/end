@@ -16,6 +16,7 @@ body {
     height: 1920px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* للتأكد من عدم خروج أي عنصر خارج القالب */
 }
 
 #template {
@@ -25,6 +26,17 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 2; /* القالب فوق الخلفية */
+}
+
+#background-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* الخلفية تحت القالب */
+    cursor: move;
+    display: none;
+    object-fit: cover; /* تغطية القالب بالكامل */
 }
 
 .logo {
@@ -33,6 +45,7 @@ body {
     height: auto;
     cursor: pointer;
     display: none;
+    z-index: 3; /* الشعارات فوق القالب */
 }
 
 #team1-logo {
@@ -59,7 +72,7 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
     border-radius: 5px;
-    z-index: 3;
+    z-index: 4; /* عناصر التحكم فوق الجميع */
 }
 
 select {
@@ -103,14 +116,4 @@ button:hover {
 
 .upload-button:hover {
     background-color: #218838;
-}
-
-#background-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    cursor: move;
-    display: none;
-    object-fit: cover; /* التأكد من تغطية الصورة للقالب */
 }
