@@ -118,7 +118,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 ],
                 autoScroll: true,
                 listeners: {
-                    move: dragMoveListener
+                    start: function (event) {
+                        // تجميد الطبقة التي أمامها (الشعارات والقوائم المنسدلة)
+                        document.querySelectorAll('.logo, .controls').forEach(element => {
+                            element.style.pointerEvents = 'none'; // تعطيل التفاعل مع العناصر الأخرى
+                        });
+                    },
+                    move: dragMoveListener,
+                    end: function (event) {
+                        // إعادة تفعيل الطبقة التي أمامها بعد الانتهاء من التحريك
+                        document.querySelectorAll('.logo, .controls').forEach(element => {
+                            element.style.pointerEvents = 'auto'; // إعادة تفعيل التفاعل مع العناصر الأخرى
+                        });
+                    }
                 }
             })
             .resizable({
@@ -163,41 +175,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // تحميل الصورة النهائية
     function downloadTemplate() {
-    const container = document.querySelector('.container');
-    const controls = document.querySelector('.controls');
-    controls.style.display = 'none'; // إخفاء عناصر التحكم أثناء التحميل
+        const container = document.querySelector('.container');
+        const controls = document.querySelector('.controls');
+        controls.style.display = 'none'; // إخفاء عناصر التحكم أثناء التحميل
 
-    // تحديد حدود القالب (1080x1920)
-    const canvas = document.createElement('canvas');
-    canvas.width = 1080;
-    canvas.height = 1920;
-    const ctx = canvas.getContext('2d');
+        // تحديد حدود القالب (1080x1920)
+        const canvas = document.createElement('canvas');
+        canvas.width = 1080;
+        canvas.height = 1920;
+        const ctx = canvas.getContext('2d');
 
-    // استخدام html2canvas لالتقاط الجزء الموجود داخل القالب
-    html2canvas(container, {
-        allowTaint: true,
-        useCORS: true,
-        logging: true,
-        width: 1080, // تحديد عرض القالب
-        height: 1920, // تحديد ارتفاع القالب
-        x: 0, // بدء الالتقاط من الزاوية اليسرى العليا
-        y: 0, // بدء الالتقاط من الزاوية اليسرى العليا
-    }).then(canvas => {
-        const image = canvas.toDataURL('image/png');
+        // استخدام html2canvas لالتقاط الجزء الموجود داخل القالب
+        html2canvas(container, {
+            allowTaint: true,
+            useCORS: true,
+            logging: true,
+            width: 1080, // تحديد عرض القالب
+            height: 1920, // تحديد ارتفاع القالب
+            x: 0, // بدء الالتقاط من الزاوية اليسرى العليا
+            y: 0, // بدء الالتقاط من الزاوية اليسرى العليا
+        }).then(canvas => {
+            const image = canvas.toDataURL('image/png');
 
-        // إنشاء رابط لتحميل الصورة
-        const link = document.createElement('a');
-        link.href = image;
-        link.download = 'template-with-logos.png';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+            // إنشاء رابط لتحميل الصورة
+            const link = document.createElement('a');
+            link.href = image;
+            link.download = 'template-with-logos.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
 
-        // إعادة عرض عناصر التحكم بعد التحميل
-        controls.style.display = 'flex';
-    }).catch(error => {
-        console.error('حدث خطأ أثناء إنشاء الصورة:', error);
-    });
-}
+            // إعادة عرض عناصر التحكم بعد التحميل
+            controls.style.display = 'flex';
+        }).catch(error => {
+            console.error('حدث خطأ أثناء إنشاء الصورة:', error);
+        });
+    }
 });
