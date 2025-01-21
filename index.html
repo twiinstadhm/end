@@ -3,29 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تعديل الشعارات</title>
+    <title>تعديل القالب</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@interactjs/interactjs/dist/interact.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <img src="./logos/template.png" alt="Template" id="template">
-        <img id="team1-logo" class="logo" alt="شعار الفريق الأول">
-        <img id="team2-logo" class="logo" alt="شعار الفريق الثاني">
-        <img id="background-image" alt="الصورة الخلفية">
+        <img id="background-image" src="image.jpg" alt="Background Image">
+        <img id="template" src="template.png" alt="Template">
+        <img id="team1-logo" class="logo" src="" alt="Team 1 Logo">
+        <img id="team2-logo" class="logo" src="" alt="Team 2 Logo">
     </div>
+
     <div class="controls">
-        <select id="team1-select">
-            <option value="">اختر شعار الفريق الأول</option>
-        </select>
-        <select id="team2-select">
-            <option value="">اختر شعار الفريق الثاني</option>
-        </select>
-        <input type="file" id="background-upload">
         <button class="upload-button" onclick="document.getElementById('background-upload').click()">رفع صورة خلفية</button>
-        <button onclick="downloadTemplate()">تحميل الصورة</button>
+        <input type="file" id="background-upload" accept="image/*">
+        <select id="team1-select"></select>
+        <select id="team2-select"></select>
+        <button onclick="downloadTemplate()">تحميل القالب</button>
     </div>
-    <script src="scripts.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
