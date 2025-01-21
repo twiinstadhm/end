@@ -1,48 +1,31 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تعديل الشعارات</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@interactjs/interactjs/dist/interact.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <!-- الصورة الخلفية -->
-        <img src="" alt="Background Image" id="background-image" class="draggable resizable">
-
-        <!-- الصورة الأساسية (Template) -->
-        <img src="./logos/template.png" alt="Template" id="template">
-
-        <!-- شعار الفريق الأول -->
-        <img src="" alt="Team 1 Logo" id="team1-logo" class="logo">
-
-        <!-- شعار الفريق الثاني -->
-        <img src="" alt="Team 2 Logo" id="team2-logo" class="logo">
+        <img id="template" src="template.png" alt="القالب">
+        <img id="team1-logo" class="logo" alt="شعار الفريق الأول">
+        <img id="team2-logo" class="logo" alt="شعار الفريق الثاني">
+        <img id="background-image" alt="الصورة الخلفية">
     </div>
-
-    <!-- عناصر التحكم خارج .container -->
     <div class="controls">
-        <!-- زر رفع الصورة الخلفية -->
-        <input type="file" id="background-upload" accept="image/*" style="display: none;">
-        <button class="upload-button" onclick="document.getElementById('background-upload').click()">رفع صورة خلفية</button>
-
-        <!-- قائمة منسدلة لتحديد شعار الفريق الأول -->
         <select id="team1-select">
             <option value="">اختر شعار الفريق الأول</option>
         </select>
-
-        <!-- قائمة منسدلة لتحديد شعار الفريق الثاني -->
         <select id="team2-select">
             <option value="">اختر شعار الفريق الثاني</option>
         </select>
-
-        <!-- زر لتحميل الصورة النهائية -->
+        <input type="file" id="background-upload">
+        <button class="upload-button" onclick="document.getElementById('background-upload').click()">رفع صورة خلفية</button>
         <button onclick="downloadTemplate()">تحميل الصورة</button>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
