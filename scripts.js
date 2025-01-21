@@ -102,34 +102,48 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // تفعيل التفاعل مع الصورة الخلفية
     function enableImageInteraction(imageElement) {
-        interact(imageElement)
-            .draggable({
-                listeners: {
-                    move: function (event) {
-                        const target = event.target;
-                        const dataX = parseFloat(target.getAttribute('data-x')) || 0;
-                        const dataY = parseFloat(target.getAttribute('data-y')) || 0;
-                        const x = dataX + event.dx;
-                        const y = dataY + event.dy;
-                        target.style.backgroundPosition = `${x}px ${y}px`;
-                        target.setAttribute('data-x', x);
-                        target.setAttribute('data-y', y);
-                    }
-                }
-            });
+    interact(imageElement)
+        .draggable({
+            listeners: {
+                move: function (event) {
+                    const target = event.target;
 
-        // تكبير/تصغير باستخدام عجلة الفأرة
-        imageElement.addEventListener('wheel', function (event) {
-            event.preventDefault();
-            const scale = parseFloat(imageElement.dataset.scale) || 1;
-            const delta = event.deltaY > 0 ? -0.1 : 0.1;
-            const newScale = Math.min(Math.max(scale + delta, 0.5), 3); // حدود التكبير بين 0.5 و 3
-            imageElement.style.transform = `scale(${newScale})`;
-            imageElement.dataset.scale = newScale;
+                    // احصل على القيم الحالية للموقع
+                    const dataX = parseFloat(target.getAttribute('data-x')) || 0;
+                    const dataY = parseFloat(target.getAttribute('data-y')) || 0;
+
+                    // احسب الموقع الجديد
+                    const x = dataX + event.dx;
+                    const y = dataY + event.dy;
+
+                    // قم بتحديث موضع الصورة الخلفية
+                    target.style.backgroundPosition = `${x}px ${y}px`;
+
+                    // قم بحفظ القيم الجديدة
+                    target.setAttribute('data-x', x);
+                    target.setAttribute('data-y', y);
+                }
+            }
         });
-    }
+
+    // تكبير/تصغير باستخدام عجلة الفأرة
+    imageElement.addEventListener('wheel', function (event) {
+        event.preventDefault();
+
+        // احصل على المقياس الحالي
+        const scale = parseFloat(imageElement.dataset.scale) || 1;
+
+        // حساب التغيير في المقياس
+        const delta = event.deltaY > 0 ? -0.1 : 0.1;
+        const newScale = Math.min(Math.max(scale + delta, 0.5), 3); // حدود التكبير بين 0.5 و 3
+
+        // تحديث مقياس الصورة
+        imageElement.style.transform = `scale(${newScale})`;
+        imageElement.dataset.scale = newScale;
+    });
+}
+
 
     // تحميل القالب كصورة
     window.downloadTemplate = function () {
