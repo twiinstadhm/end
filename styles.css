@@ -42,6 +42,7 @@ body {
     width: auto; /* العرض يعتمد على النسبة الأصلية */
     height: auto; /* الارتفاع يعتمد على النسبة الأصلية */
     max-height: 100%; /* عدم تجاوز الارتفاع الكامل للحاوية */
+    max-width: 100%; /* عدم تجاوز العرض الكامل للحاوية */
     background-size: cover; /* غطاء كامل مع الحفاظ على النسبة */
     background-position: center; /* توسيط الصورة */
     background-repeat: no-repeat; /* منع تكرار الصورة */
