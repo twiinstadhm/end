@@ -29,6 +29,11 @@ body {
     z-index: 2; /* القالب فوق الخلفية */
 }
 
+#template {
+    pointer-events: none; /* يمنع القالب من استقبال أي أحداث */
+}
+
+
 #background-image {
     position: absolute;
     width: 100%;
