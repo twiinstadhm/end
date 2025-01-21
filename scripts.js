@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const logosPath = "./logos/";
+    const logosPath = "./logos/"; // المسار النسبي لمجلد الشعارات
     const team1Select = document.getElementById('team1-select');
     const team2Select = document.getElementById('team2-select');
     const team1Logo = document.getElementById('team1-logo');
@@ -80,11 +80,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // تحديث شعار الفريق الأول عند تغيير الاختيار
     team1Select.addEventListener('change', function() {
         team1Logo.src = logosPath + this.value;
+        team1Logo.style.display = 'block'; // عرض الشعار بعد اختياره
     });
 
     // تحديث شعار الفريق الثاني عند تغيير الاختيار
     team2Select.addEventListener('change', function() {
         team2Logo.src = logosPath + this.value;
+        team2Logo.style.display = 'block'; // عرض الشعار بعد اختياره
     });
 
     // رفع الصورة الخلفية
