@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const logosPath = "./logos/";
+    const logosPath = "./logos/"; // استخدام المسار النسبي هنا
     const team1Select = document.getElementById('team1-select');
     const team2Select = document.getElementById('team2-select');
     const team1Logo = document.getElementById('team1-logo');
@@ -7,60 +7,59 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // قائمة الشعارات
     const logos = [
-    "BUNDESLIGA - آينتراخت فرانكفورت.png",
-    "BUNDESLIGA - باير ليفركوزن.png",
-    "BUNDESLIGA - بايرن ميونخ.png",
-    "BUNDESLIGA - بروسيا دورتموند.png",
-    "BUNDESLIGA - بروسيا مونشنغلادباخ.png",
-    "BUNDESLIGA - فرايبوررغ.png",
-    "BUNDESLIGA - ماينز.png",
-    "BUNDESLIGA - هولشتاين.png",
-    "BUNDESLIGA---هوفنهايم.png",
-    "LA LIGA - أتلتيك بلباو.png",
-    "LA LIGA - برشلونة.png",
-    "LA LIGA - ريال مدريد.png",
-    "LA-LIGA---خيتافي.png",
-    "LA-LIGA---سيلتا-فيغو.png",
-    "LALIGA - ريال بيتيس.png",
-    "LALIGA - لاس بالماس .png",
-    "PREMIER LEAGUE - آرسنال.png",
-    "PREMIER LEAGUE - إبسويتش تاون.png",
-    "PREMIER LEAGUE - إيفرتون.png",
-    "PREMIER LEAGUE - برايتون.png",
-    "PREMIER LEAGUE - برينتفورد.png",
-    "PREMIER LEAGUE - بورنموث.png",
-    "PREMIER LEAGUE - تشيلسي.png",
-    "PREMIER LEAGUE - توتنهام.png",
-    "PREMIER LEAGUE - ليفربول .png",
-    "PREMIER LEAGUE - مانشستر سيتي.png",
-    "PREMIER LEAGUE - نيوكاسل.png",
-    "PREMIER-LEAGUE---أستون-فيلا.png",
-    "PREMIER-LEAGUE---نوتينغهام.png",
-    "SERIA A - إمبولي.png",
-    "SERIE A - كومو.png",
-    "SERIE A - ميلان.png",
-    "SERIE A - نابولي.png",
-    "SERIE-A---أتلانتا.png",
-    "SERIE-A---يوفنتوس.png",
-    "الأخدود.png",
-    "الأهلي.png",
-    "الإتفاق.png",
-    "الاتحاد.png",
-    "التعاون.png",
-    "الخلود.png",
-    "الخليج.png",
-    "الرائد.png",
-    "الرياض.png",
-    "الشباب.png",
-    "العروبة.png",
-    "الفتح.png",
-    "الفيحاء.png",
-    "القادسية.png",
-    "النصر.png",
-    "الهلال.png",
-    "الوحدة.png",
-    "ضمك.png"
-        // ... بقية الشعارات
+        "BUNDESLIGA - آينتراخت فرانكفورت.png",
+        "BUNDESLIGA - باير ليفركوزن.png",
+        "BUNDESLIGA - بايرن ميونخ.png",
+        "BUNDESLIGA - بروسيا دورتموند.png",
+        "BUNDESLIGA - بروسيا مونشنغلادباخ.png",
+        "BUNDESLIGA - فرايبوررغ.png",
+        "BUNDESLIGA - ماينز.png",
+        "BUNDESLIGA - هولشتاين.png",
+        "BUNDESLIGA---هوفنهايم.png",
+        "LA LIGA - أتلتيك بلباو.png",
+        "LA LIGA - برشلونة.png",
+        "LA LIGA - ريال مدريد.png",
+        "LA-LIGA---خيتافي.png",
+        "LA-LIGA---سيلتا-فيغو.png",
+        "LALIGA - ريال بيتيس.png",
+        "LALIGA - لاس بالماس .png",
+        "PREMIER LEAGUE - آرسنال.png",
+        "PREMIER LEAGUE - إبسويتش تاون.png",
+        "PREMIER LEAGUE - إيفرتون.png",
+        "PREMIER LEAGUE - برايتون.png",
+        "PREMIER LEAGUE - برينتفورد.png",
+        "PREMIER LEAGUE - بورنموث.png",
+        "PREMIER LEAGUE - تشيلسي.png",
+        "PREMIER LEAGUE - توتنهام.png",
+        "PREMIER LEAGUE - ليفربول .png",
+        "PREMIER LEAGUE - مانشستر سيتي.png",
+        "PREMIER LEAGUE - نيوكاسل.png",
+        "PREMIER-LEAGUE---أستون-فيلا.png",
+        "PREMIER-LEAGUE---نوتينغهام.png",
+        "SERIA A - إمبولي.png",
+        "SERIE A - كومو.png",
+        "SERIE A - ميلان.png",
+        "SERIE A - نابولي.png",
+        "SERIE-A---أتلانتا.png",
+        "SERIE-A---يوفنتوس.png",
+        "الأخدود.png",
+        "الأهلي.png",
+        "الإتفاق.png",
+        "الاتحاد.png",
+        "التعاون.png",
+        "الخلود.png",
+        "الخليج.png",
+        "الرائد.png",
+        "الرياض.png",
+        "الشباب.png",
+        "العروبة.png",
+        "الفتح.png",
+        "الفيحاء.png",
+        "القادسية.png",
+        "النصر.png",
+        "الهلال.png",
+        "الوحدة.png",
+        "ضمك.png"
     ];
 
     // تعبئة القوائم المنسدلة بالشعارات
@@ -86,20 +85,3 @@ document.addEventListener('DOMContentLoaded', function() {
         team2Logo.src = logosPath + this.value;
     });
 });
-
-// تحميل الصورة النهائية
-function downloadTemplate() {
-    const container = document.querySelector('.container');
-
-    html2canvas(container).then(canvas => {
-        const image = canvas.toDataURL('image/png');
-        const link = document.createElement('a');
-        link.href = image;
-        link.download = 'template-with-logos.png';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }).catch(error => {
-        console.error('حدث خطأ أثناء إنشاء الصورة:', error);
-    });
-}
